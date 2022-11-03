@@ -14,9 +14,9 @@ async function bootstrap() {
     .addTag('items')
     .build();
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('/docs', app, document);
-  app.useStaticAssets(join(__dirname, "/static"), {
-      prefix: "/docs"
+  SwaggerModule.setup('/swagger', app, document);
+  app.useStaticAssets(join(__dirname, "assets/swagger-ui-dist/"), {
+      prefix: "/swagger"
     });
   app.useGlobalPipes(new ValidationPipe())
   await app.listen(3000);
