@@ -6,9 +6,9 @@ import { User, UserSchema } from './schema/user.schema';
 import { JwtModule } from '@nestjs/jwt';
 // import { jwtConstants } from 'strategy/constants';
 import { HashService } from './services/hash.service';
-import { AuthService } from 'auth/auth.service';
-import { JwtStrategy } from 'strategy/jwt.strategy';
-import { LocalStrategy } from 'strategy/local.strategy';
+import { AuthService } from '../auth/auth.service';
+import { JwtStrategy } from '../strategy/jwt.strategy';
+import { LocalStrategy } from '../strategy/local.strategy';
 import { ConfigService } from '@nestjs/config';
 
 @Module({

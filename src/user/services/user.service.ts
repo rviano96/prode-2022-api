@@ -1,11 +1,11 @@
 import { BadRequestException, HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { CreateUserDto } from 'user/dto/create-user.dto';
-import { UpdateUserDto } from 'user/dto/update-user.dto';
-import { User, UserDocument } from 'user/schema/user.schema';
+import { CreateUserDto } from '../dto/create-user.dto';
+import { UpdateUserDto } from '../dto/update-user.dto';
+import { User, UserDocument } from '../schema/user.schema';
 import { HashService } from './hash.service';
-import { User as UserEntity } from 'user/entities/user.entity'
+import { User as UserEntity } from '../entities/user.entity'
 
 @Injectable()
 export class UserService {
