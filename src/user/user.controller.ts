@@ -15,7 +15,8 @@ export class UserController {
   @UseGuards(AuthGuard('jwt'))
   @Get('')
   getUserByEmail(@Query() query: any): Promise<User | null> {
-    return this.userService.findOneByEmail(query.email);
+    
+    return this.userService.findOneByEmail(query);
   }
   @Post()
   registerUser(@Body() createUserDto: CreateUserDto): Promise<UserEntity| HttpException> {

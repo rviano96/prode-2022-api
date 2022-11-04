@@ -5,7 +5,7 @@ import { CreateUserDto } from 'user/dto/create-user.dto';
 import { UpdateUserDto } from 'user/dto/update-user.dto';
 import { User, UserDocument } from 'user/schema/user.schema';
 import { HashService } from './hash.service';
-// import { User as UserEntity } from 'user/entities/user.entity'
+import { User as UserEntity } from 'user/entities/user.entity'
 
 @Injectable()
 export class UserService {
@@ -13,7 +13,7 @@ export class UserService {
     @InjectModel(User.name) private userModel: Model<UserDocument>, private hashService: HashService
   ) { }
 
-  async create(createUserDto: CreateUserDto): Promise<any | HttpException> {
+  async create(createUserDto: CreateUserDto): Promise<UserEntity | HttpException> {
     const createUser = new this.userModel(createUserDto);
     const user = await this.findOneByEmail(createUser.email);
     if (user) {
@@ -52,8 +52,9 @@ export class UserService {
   }
 
   // return user object without password
-  private sanitizeUser(user: User): any {
-    const sanitized = {email: user.email}
+  private sanitizeUser(user: User): UserEntity {
+    const sanitized = new UserEntity(user.email, user.password)
+    delete sanitized['password'];
     return sanitized;
   }
 }

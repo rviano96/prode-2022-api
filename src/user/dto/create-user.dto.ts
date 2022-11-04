@@ -1,9 +1,8 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { IsEmail, IsNotEmpty, Length } from "class-validator";
-import { User } from "user/entities/user.entity";
 
 //Not sure if should extends from User...
-export class CreateUserDto extends User{
+export class CreateUserDto{
     @ApiProperty()
     @IsEmail()
     @IsNotEmpty()
@@ -11,5 +10,6 @@ export class CreateUserDto extends User{
 
     @ApiProperty()
     @Length(8, 20)
+    @IsNotEmpty()
     password: string;
 }
