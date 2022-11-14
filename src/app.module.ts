@@ -1,21 +1,31 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { ConfigModule } from '@nestjs/config';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { UserModule } from './user/user.module';
+import { DatabaseConfigurationService } from './database-configuration/database-configuration.service';
+import { TeamModule } from './team/team.module';
+import { MatchModule } from './match/match.module';
+import { PredictionModule } from './prediction/prediction.module';
+import { AuthModule } from './auth/auth.module';
+import { StadiumModule } from './stadium/stadium.module';
 
-import { MongooseModule } from '@nestjs/mongoose'
-import { ConfigModule, ConfigService } from '@nestjs/config';
-import { ItemsModule } from './items/items.module';
+
 
 @Module({
   imports: [
-    MongooseModule.forRootAsync({
-      imports: [ConfigModule],
-      useFactory: async (configService: ConfigService) => ({
-        uri: configService.get<string>('DB_CONN_STRING'),
-      }),
-      inject: [ConfigService],
-    })
-    , ConfigModule.forRoot({ isGlobal: true }), ItemsModule],
+    ConfigModule.forRoot({ isGlobal: true }),
+    TypeOrmModule.forRootAsync({
+      useClass: DatabaseConfigurationService,
+      imports: [ConfigModule]
+    }),
+    UserModule,
+    TeamModule,
+    MatchModule,
+    PredictionModule,
+    AuthModule,
+    StadiumModule],
   controllers: [AppController],
   providers: [AppService],
 })

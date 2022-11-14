@@ -1,4 +1,5 @@
 import { ValidationPipe } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
 import { NestFactory } from '@nestjs/core';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
@@ -7,18 +8,26 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app: NestExpressApplication = await NestFactory.create(AppModule);
-  const config = new DocumentBuilder()
+  const config: ConfigService = app.get(ConfigService);
+  const port: number = config.get<number>('PORT') || 3000;
+  const swaggerConfig = new DocumentBuilder()
     .setTitle('API DOCUMENTATION')
-    .setDescription('API DESCRIPTION')
-    .setVersion('1.0')
-    .addTag('items')
+    .setDescription('API PRODE')
+    .setVersion('2.1.9')
+    .addTag('auth')
+    .addTag('match')
+    .addTag('prediction')
+    .addTag('stadium')
+    .addTag('user')
     .build();
-  const document = SwaggerModule.createDocument(app, config);
+  const document = SwaggerModule.createDocument(app, swaggerConfig);
   SwaggerModule.setup('/swagger', app, document);
   app.useStaticAssets(join(__dirname, "assets/swagger-ui-dist/"), {
-      prefix: "/swagger"
-    });
-  app.useGlobalPipes(new ValidationPipe())
-  await app.listen(3000);
+    prefix: "/swagger"
+  });
+  app.useGlobalPipes(new ValidationPipe({ whitelist: true, transform: true }));
+  await app.listen(port, () => {
+    console.log('[WEB]', `http://localhost:${port}`);
+  });
 }
 bootstrap();
