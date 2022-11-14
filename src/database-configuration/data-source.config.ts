@@ -21,6 +21,7 @@ const dataSourceOptions = () => {
       options = {
         ...defaultOptions, type: configService.get<string>('DATABASE_TYPE'),
         url: configService.get<string>('DATABASE_URL'),
+        ssl: true,
         extra: {
           options: configService.get<string>('DB_ROUTING_ID'),
           application_name: "docs_simplecrud_typeorm"
