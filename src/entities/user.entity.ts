@@ -33,7 +33,7 @@ export class User extends Base {
   @Column({ type: 'timestamp', nullable: true, default: null })
   lastLoginAt: Date | null;
 
-  @Column({ type: 'enum', enum: Role, default: Role.USER })
+  @Column({ default: Role.USER })
   role: Role;
 
   @OneToMany(() => Prediction, (prediction) => prediction.userId)
