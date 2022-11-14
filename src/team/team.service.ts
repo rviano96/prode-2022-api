@@ -1,7 +1,7 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Team } from 'entities/team.entity';
-import { TeamModel } from 'models/team/team.model';
+import { Team } from '../entities/team.entity';
+import { TeamModel } from '../models/team/team.model';
 import { from, map, Observable } from 'rxjs';
 import { Repository, UpdateResult } from 'typeorm';
 import { CreateTeamDto } from '../models/team/dto/create-team.dto';

@@ -1,12 +1,12 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Match } from 'entities/match.entity';
-import { Prediction } from 'entities/prediction.entity';
-import { User } from 'entities/user.entity';
-import { PredictionModel } from 'models/prediction/prediction.model';
+import { Match } from '../entities/match.entity';
+import { Prediction } from '../entities/prediction.entity';
+import { User } from '../entities/user.entity';
+import { PredictionModel } from '../models/prediction/prediction.model';
 import { from, map, Observable } from 'rxjs';
 import { Repository } from 'typeorm';
-import { UserService } from 'user/user.service';
+import { UserService } from '../user/user.service';
 import { CreatePredictionDto } from '../models/prediction/dto/create-prediction.dto';
 import { UpdatePredictionDto } from '../models/prediction/dto/update-prediction.dto';
 

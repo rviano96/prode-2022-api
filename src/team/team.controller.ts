@@ -2,10 +2,10 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards } from '@n
 import { TeamService } from './team.service';
 import { CreateTeamDto } from '../models/team/dto/create-team.dto';
 import { UpdateTeamDto } from '../models/team/dto/update-team.dto';
-import { Role } from 'entities/user.entity';
-import { hasRoles } from 'auth/decorators/role.decorator';
-import { JwtAuthGuard } from 'auth/guards/jwt-auth.guard';
-import { RolesGuard } from 'auth/guards/roles.guard';
+import { Role } from '../entities/user.entity';
+import { hasRoles } from '../auth/decorators/role.decorator';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { RolesGuard } from '../auth/guards/roles.guard';
 
 @Controller('team')
 export class TeamController {

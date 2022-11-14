@@ -1,8 +1,8 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Match } from 'entities/match.entity';
-import { Team } from 'entities/team.entity';
-import { MatchModel } from 'models/match/match.model';
+import { Match } from '../entities/match.entity';
+import { Team } from '../entities/team.entity';
+import { MatchModel } from '../models/match/match.model';
 import { from, map, Observable } from 'rxjs';
 import { Repository } from 'typeorm';
 import { CreateMatchDto } from '../models/match/dto/create-match.dto';

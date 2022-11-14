@@ -3,10 +3,10 @@ import { PredictionService } from './prediction.service';
 import { PredictionController } from './prediction.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Prediction } from '../entities/prediction.entity';
-import { Match } from 'entities/match.entity';
-import { User } from 'entities/user.entity';
-import { UserModule } from 'user/user.module';
-import { MatchModule } from 'match/match.module';
+import { Match } from '../entities/match.entity';
+import { User } from '../entities/user.entity';
+import { UserModule } from '../user/user.module';
+import { MatchModule } from '../match/match.module';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Prediction]), UserModule, MatchModule],

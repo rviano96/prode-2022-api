@@ -2,12 +2,12 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards } from '@n
 import { StadiumService } from './stadium.service';
 import { CreateStadiumDto } from '../models/stadium/dto/create-stadium.dto';
 import { UpdateStadiumDto } from '../models/stadium/dto/update-stadium.dto';
-import { hasRoles } from 'auth/decorators/role.decorator';
-import { Role } from 'entities/user.entity';
-import { JwtAuthGuard } from 'auth/guards/jwt-auth.guard';
-import { RolesGuard } from 'auth/guards/roles.guard';
+import { hasRoles } from '../auth/decorators/role.decorator';
+import { Role } from '../entities/user.entity';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { RolesGuard } from '../auth/guards/roles.guard';
 import { ApiTags } from '@nestjs/swagger';
-import { URL_STADIUM } from 'util/Constants';
+import { URL_STADIUM } from '../util/Constants';
 
 @ApiTags('stadium')
 @UseGuards(JwtAuthGuard, RolesGuard)

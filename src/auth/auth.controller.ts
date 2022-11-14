@@ -1,10 +1,10 @@
 import { Body, ClassSerializerInterceptor, Controller, Inject, Post, Req, UseGuards, UseInterceptors } from '@nestjs/common';
-import { User } from 'entities/user.entity';
+import { User } from '../entities/user.entity';
 import {  LoginDto, JwtResponseDto } from '../models/auth/auth.dto';
 import { JwtAuthGuard } from './guards/jwt-auth.guard';
 import { AuthService } from './auth.service';
 import { ApiTags } from '@nestjs/swagger';
-import { URL_AUTH } from 'util/Constants';
+import { URL_AUTH } from '../util/Constants';
 
 @ApiTags('auth')
 @Controller(URL_AUTH)

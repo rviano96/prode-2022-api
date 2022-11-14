@@ -2,12 +2,12 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Req } fro
 import { PredictionService } from './prediction.service';
 import { CreatePredictionDto } from '../models/prediction/dto/create-prediction.dto';
 import { UpdatePredictionDto } from '../models/prediction/dto/update-prediction.dto';
-import { hasRoles } from 'auth/decorators/role.decorator';
-import { Role } from 'entities/user.entity';
-import { JwtAuthGuard } from 'auth/guards/jwt-auth.guard';
-import { RolesGuard } from 'auth/guards/roles.guard';
+import { hasRoles } from '../auth/decorators/role.decorator';
+import { Role } from '../entities/user.entity';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { RolesGuard } from '../auth/guards/roles.guard';
 import { ApiTags } from '@nestjs/swagger';
-import { URL_PREDICTION } from 'util/Constants';
+import { URL_PREDICTION } from '../util/Constants';
 
 @ApiTags('prediction')
 @Controller(URL_PREDICTION)

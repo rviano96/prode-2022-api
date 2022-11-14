@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Stadium } from 'entities/stadium.entity';
-import { StadiumModel } from 'models/stadium/stadium.model';
+import { Stadium } from '../entities/stadium.entity';
+import { StadiumModel } from '../models/stadium/stadium.model';
 import { from, map, Observable } from 'rxjs';
 import { DeleteResult, Repository, UpdateResult } from 'typeorm';
 import { CreateStadiumDto } from '../models/stadium/dto/create-stadium.dto';

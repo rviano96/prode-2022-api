@@ -2,12 +2,12 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards } from '@n
 import { MatchService } from './match.service';
 import { CreateMatchDto } from '../models/match/dto/create-match.dto';
 import { UpdateMatchDto } from '../models/match/dto/update-match.dto';
-import { RolesGuard } from 'auth/guards/roles.guard';
-import { JwtAuthGuard } from 'auth/guards/jwt-auth.guard';
-import { Role } from 'entities/user.entity';
-import { hasRoles } from 'auth/decorators/role.decorator';
+import { RolesGuard } from '../auth/guards/roles.guard';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { Role } from '../entities/user.entity';
+import { hasRoles } from '../auth/decorators/role.decorator';
 import { ApiTags } from '@nestjs/swagger';
-import { URL_MATCH } from 'util/Constants';
+import { URL_MATCH } from '../util/Constants';
 
 @ApiTags('match')
 @UseGuards(JwtAuthGuard, RolesGuard)
