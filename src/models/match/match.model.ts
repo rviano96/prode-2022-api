@@ -1,7 +1,7 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { BaseModel } from "models/base.model";
-import { StadiumModel } from "models/stadium/stadium.model";
-import { TeamModel } from "models/team/team.model";
+import { BaseModel } from "../../models/base.model";
+import { StadiumModel } from "../../models/stadium/stadium.model";
+import { TeamModel } from "../../models/team/team.model";
 
 export class MatchModel extends BaseModel{
     @ApiProperty()

@@ -1,9 +1,9 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { IsNotEmpty } from "class-validator";
-import { Prediction } from "entities/prediction.entity";
-import { BaseModel } from "models/base.model";
-import { MatchModel } from "models/match/match.model";
-import { UserModel } from "models/user/user.model";
+import { Prediction } from "../../entities/prediction.entity";
+import { BaseModel } from "../../models/base.model";
+import { MatchModel } from "../../models/match/match.model";
+import { UserModel } from "../../models/user/user.model";
 
 export class PredictionModel extends BaseModel {
 

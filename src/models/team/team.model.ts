@@ -1,8 +1,8 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { Trim } from "class-sanitizer";
 import { IsNotEmpty } from "class-validator";
-import { BaseModel } from "models/base.model";
-import { MatchModel } from "models/match/match.model";
+import { BaseModel } from "../../models/base.model";
+import { MatchModel } from "../../models/match/match.model";
 
 export class TeamModel extends BaseModel {
 

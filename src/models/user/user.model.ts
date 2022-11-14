@@ -1,10 +1,10 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { Exclude } from "class-transformer";
 import { IsEmail, IsNotEmpty } from "class-validator";
-import { Prediction } from "entities/prediction.entity";
-import { Role } from "entities/user.entity";
-import { BaseModel } from "models/base.model";
-import { PredictionModel } from "models/prediction/prediction.model";
+import { Prediction } from "../../entities/prediction.entity";
+import { Role } from "../../entities/user.entity";
+import { BaseModel } from "../../models/base.model";
+import { PredictionModel } from "../../models/prediction/prediction.model";
 
 export class UserModel extends BaseModel{
     @ApiProperty()
