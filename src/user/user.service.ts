@@ -1,6 +1,6 @@
 import { HttpException, HttpStatus, Inject, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { AuthHelper } from 'auth/auth.helper';
+import { AuthHelper } from '../auth/auth.helper';
 import { UserModel } from 'models/user/user.model';
 import { from, map, Observable, of } from 'rxjs';
 import { Repository } from 'typeorm';
